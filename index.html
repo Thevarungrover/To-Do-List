@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <!-- css linking -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="heading">
+        <h2>TO DO LIST</h2>
+    </div>
+
+    <div class="content">
+        <!-- 3. Add items -->
+        <input type="text" id="new_list_item" placeholder="ADD MORE ITEM">
+        <button onclick="addItem()">ADD</button>
+
+        <div class="list">
+        <!-- 1. Create a list to store todos and give default items -->
+        <script>
+            var listItems = ['Buy Groceries', 'Make Breakfast'];
+        </script>
+
+        <script>
+            function addItem(){
+                var tempItem = document.getElementById("new_list_item").value;
+
+                if (tempItem === '') {
+                     alert("You must write something!");
+                }
+                else{
+                    listItems.push(tempItem);
+                displayList(tempItem);
+                document.getElementById("new_list_item").value = '';
+                }
+               
+            }
+        </script>
+        <!-- 2. Display items-->
+            <div id="display">
+                <ul>
+                    <script>
+                    listItems.forEach(displayList);
+
+                        function displayList(item){
+                        document.getElementById("display").innerHTML += "<li>" + item + "</li>";
+                        }
+                    </script>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
